@@ -1,0 +1,51 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.min.css')}}">
+  <script type="text/javascript" src="{{url_for('static', filename='jquery.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+</head>
+   <body>
+     <div class="container">
+       <form action = "{{ url_for('addrec') }}" method = "POST" enctype = "multipart/form-data">
+          <h3>Seller Panel</h3>
+          <div class="form-group col-md-12">
+            <label class="col-sm-2 control-label" for="file">Browse:</label>
+            <div class="col-md-10">
+              <input class="form-control" type="file" name="file" required="">
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <label class="col-sm-2 control-label" for="file">Name:</label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" name="name" required="">
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <label class="col-sm-2 control-label" for="file">Price</label>
+            <div class="col-md-10">
+              <input class="form-control" type="number" name="price" required="">
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <label class="col-sm-2 control-label" for="file">Inventory</label>
+            <div class="col-md-10">
+              <input class="form-control" type="number" name="inventory" required="">
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <div class="col-md-12 text-right">
+              <button type="submit" class="btn
+                btn-primary"><i class="fa fa-cloud-upload "></i> Submit</button>
+            </div>
+          </div>
+          <!-- <input type = "submit" value = "submit" /><br> -->
+       </form>
+       <div class="col-md- 12">
+         <a href="/list">Views All Product</a>
+       </div>
+
+     </div>
+
+
+   </body>
+</html>

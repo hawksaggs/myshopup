@@ -1,0 +1,36 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.min.css')}}">
+  <script type="text/javascript" src="{{url_for('static', filename='jquery.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='product.js')}}"></script>
+</head>
+<body>
+  {% for product in products %}
+  <div class="row">
+      <div class="col-md-7">
+          <a href="#">
+              <img class="img-responsive" src="{{product.image}}" alt="" height="200" width="200">
+          </a>
+      </div>
+      <div class="col-md-5">
+          <h3><a href="#">{{product.name}}</a></h3>
+          <p>Rs. {{product.price}}</p>
+          <div class="col-md-6">
+             <label for="sel1">Select Quantity:</label>
+             <select class="form-control" id="quantity_{{product.ID}}">
+               {% for i in range(1,product.inventory) %}
+                  <option value="{{i}}">{{i}}</option>
+               {% endfor %}
+             </select>
+          </div>
+          <button id="cart" onclick="addtocart({{product.price}},{{product.inventory}},{{product.ID}},'{{product.name}}')">Add to Cart</button>
+      </div>
+  </div>
+  <hr>
+  {% endfor %}
+  <div class="col-md-3 pull-right">
+    <a href='/cart' type="button">Save</a>
+  </div>
+</body>
+</html>

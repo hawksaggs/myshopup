@@ -1,0 +1,29 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.min.css')}}">
+  <script type="text/javascript" src="{{url_for('static', filename='jquery.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='cart.js')}}"></script>
+</head>
+<body>
+  <div class="container">
+      <table border = 1 class="table">
+        <thead>
+          <td>Name</td>
+          <td>Price</td>
+          <td>Qunatity</td>
+        </thead>
+        <tbody >
+          {% for order in orders %}
+            <tr>
+              <td>{{order["name"]}}</td>
+              <td>{{order["price"]}}</td>
+              <td>{{order["quantity"]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

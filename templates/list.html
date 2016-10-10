@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.min.css')}}">
+  <script type="text/javascript" src="{{url_for('static', filename='jquery.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+</head>
+   <body>
+     <div class="container">
+       <table border = 1 class="table">
+          <thead>
+             <td>Name</td>
+             <td>Price</td>
+             <td>Inventory</td>
+             <td>filename</td>
+          </thead>
+          {% if rows %}
+          {% for row in rows %}
+             <tr>
+                <td>{{row["name"]}}</td>
+                <td>{{row["price"]}}</td>
+                <td>{{ row["inventory"]}}</td>
+                <td>{{row['image']}}</td>
+             </tr>
+          {% endfor %}
+          {% endif %}
+       </table>
+       <div class="col-md-12">
+         <a href = "/">Go back to home page</a>
+       </div>
+     </div>
+
+
+   </body>
+</html>
